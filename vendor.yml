@@ -1,0 +1,21 @@
+vendors:
+- path: github.com/golang/protobuf
+  rev: 8ee79997227bf9b34611aee7946ae64735e6fd93
+- path: github.com/golang/snappy
+  rev: 7db9049039a047d955fe8c19b83c8ff5abd765c7
+- path: github.com/onsi/ginkgo
+  rev: a23f924ce96d61f963fb6219b8ff069d8d768cc2
+- path: github.com/onsi/gomega
+  rev: e85f63af4302dc0e4277c6008ecf803f1d80e4f0
+- path: github.com/syndtr/goleveldb
+  rev: 23851d93a2292dcc56e71a18ec9e0624d84a0f65
+- path: golang.org/x/net
+  rev: f2499483f923065a842d38eb4c7f1927e6fc6e6d
+- path: golang.org/x/sync
+  rev: 450f422ab23cf9881c94e2db30cac0eb1b7cf80c
+- path: golang.org/x/sys
+  rev: d75a52659825e75fff6158388dddc6a5b04f9ba5
+- path: gopkg.in/check.v1
+  rev: 20d25e2804050c1cd24a7eea1e7a6447dd0e74ec
+- path: gopkg.in/yaml.v2
+  rev: 14227de293ca979cf205cd88769fe71ed96a97e2
