@@ -88,15 +88,10 @@ func ParseBlockTransactionsFromFile(blockFile *BlockFile, block *Block) error {
 	block.TransactionCount = blockFile.ReadVarint()
 	//fmt.Printf("Total txns: %d\n", block.TransactionCount)
 	for t := uint64(0); t < block.TransactionCount; t++ {
-		curPos, err := blockFile.Seek(0, 1)
-		if err != nil {
-			return err
-		}
 		tx, err := ParseBlockTransactionFromFile(blockFile)
 		if err != nil {
 			return err
 		}
-		tx.StartPos = uint64(curPos)
 		block.Transactions = append(block.Transactions, *tx)
 	}
 
@@ -104,9 +99,15 @@ func ParseBlockTransactionsFromFile(blockFile *BlockFile, block *Block) error {
 }
 
 func ParseBlockTransactionFromFile(blockFile *BlockFile) (*Transaction, error) {
+	curPos, err := blockFile.Seek(0, 1)
+	if err != nil {
+		return nil, err
+	}
+
 	allowWitness := true // TODO: Port code - !(s.GetVersion() & SERIALIZE_TRANSACTION_NO_WITNESS);
 
 	tx := &Transaction{}
+	tx.StartPos = uint64(curPos)
 	tx.Version = blockFile.ReadInt32()
 
 	// Check for extended transaction serialization format
