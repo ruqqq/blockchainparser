@@ -10,7 +10,7 @@ func BitcoinDir() string {
 	if runtime.GOOS == "windows" {
 		home := os.Getenv("APPDATA")
 		return home + "/Bitcoin"
-	} else if runtime.GOOS == "osx" {
+	} else if runtime.GOOS == "osx" || runtime.GOOS == "darwin" {
 		return os.Getenv("HOME") + "/Library/Application Support/Bitcoin"
 	}
 
